@@ -1,33 +1,34 @@
 import React from "react";
 import { User, BarChart3, Bell, TrendingUp } from "lucide-react";
-export const HowItWorksSection = () => {
+import userImg from "../assets/user.png";
+const HowItWorksSection = () => {
   const howItWorks = [
     {
       step: "1",
-      title: "Create Your Profile",
-      description: "Choose Your Field of interest which you want to explore.",
-      icon: <User className="w-12 h-12" />,
+      title: "Welcome Screen",
+      description:
+        "Welcome to Market Brief. Stay ahead with real-time financial news, curated insights, and smart summaries for investors and professionals.",
+      icon: <img src="/image/Onboarding.png" alt="User" />,
     },
     {
       step: "2",
-      title: "Explore Smart Picks",
+      title: "Create Your Profile",
       description:
-        "Receive personalized stock recommendations and app market insights tailored specifically to your profile and investment objectives.",
-      icon: <BarChart3 className="w-12 h-12" />,
+        "Welcome to Market Brief! We deliver sharp, easy-to-digest market insights so you can make smarter financial decisions — faster.",
+      icon: <img src="/image/Welcome User.png" alt="User" />,
     },
     {
       step: "3",
-      title: "Real-Time Market Alerts",
-      description:
-        "Stay informed with instant alerts and updates based on market trends and key price movements, so you never miss an opportunity.",
-      icon: <Bell className="w-12 h-12" />,
+      title: "Explore Smart Picks",
+      description: "Choose Your Field of interest which you want to explore.",
+      icon: <img src="/image/InterestsScreen.png" />,
     },
     {
       step: "4",
       title: "Achieve Your Goals",
       description:
         "Make informed decisions with our real-time insights and watch your portfolio grow with confidence.",
-      icon: <TrendingUp className="w-12 h-12" />,
+      icon: <img src="/image/Homepage V2.png" />,
     },
   ];
 
@@ -48,7 +49,7 @@ export const HowItWorksSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {howItWorks.map((step, index) => (
               <div key={index} className="text-center group">
-                <div className="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors">
+                <div className="">
                   <div className="text-blue-600">{step.icon}</div>
                 </div>
                 <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 text-sm font-bold">
@@ -66,3 +67,4 @@ export const HowItWorksSection = () => {
     </>
   );
 };
+export default HowItWorksSection;
