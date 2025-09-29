@@ -367,7 +367,7 @@
 // export default StockMarketApp;
 "use client";
 import React from "react";
-import HowItWorksSection from "../components/howItWorksSection";
+import HowItWorksSection from "./components/howItWorksSection";
 import {
   TrendingUp,
   Bell,
