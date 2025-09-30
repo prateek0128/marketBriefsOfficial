@@ -31,24 +31,13 @@ export const Navbar = () => {
               >
                 How It Works
               </a>
-              <a
-                href="#success-stories"
+              <Link
+                href="about-us"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
-                Success Stories
-              </a>
-              <a
-                href="#features"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Features
-              </a>
-              <a
-                href="#pricing"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Pricing
-              </a>
+                About Us
+              </Link>
+
               <button
                 className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                 onClick={() => {

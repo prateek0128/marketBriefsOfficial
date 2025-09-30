@@ -21,7 +21,7 @@ const HowItWorksSection = () => {
       step: "3",
       title: "Explore Smart Picks",
       description: "Choose Your Field of interest which you want to explore.",
-      icon: <img src="/image/InterestsScreen.png" />,
+      icon: <img src="/image/InterestsScreen.jpg" />,
     },
     {
       step: "4",
