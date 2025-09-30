@@ -1,5 +1,6 @@
 import React from "react";
 import { BarChart3 } from "lucide-react";
+import Link from "next/link";
 export const Footer = () => {
   return (
     <>
@@ -53,7 +54,9 @@ export const Footer = () => {
               <div className="space-y-2 text-gray-400">
                 <div>About Us</div>
                 <div>Careers</div>
-                <div>Privacy Policy</div>
+                <Link href="/privacypolicy" className="hover:text-white">
+                  Privacy Policy
+                </Link>
                 <div>Terms of Service</div>
               </div>
             </div>
