@@ -336,15 +336,15 @@ const AboutUsPage = () => {
               return (
                 <div
                   key={index}
-                  className="text-center p-6 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors"
+                  className="p-6 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-600 rounded-full mb-6">
+                  <div className="flex items-center justify-center w-16 h-16 bg-purple-600 rounded-full mb-6">
                     <Icon className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold text-purple-900 mb-4">
+                  <h3 className="text-xl font-bold text-purple-900 mb-4 text-left">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <p className="text-gray-600 text-left">{value.description}</p>
                 </div>
               );
             })}

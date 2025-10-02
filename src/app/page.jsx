@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import HowItWorksSection from './components/howItWorksSection'
+import HowItWorksSection from "./components/howItWorksSection";
 import {
   TrendingUp,
   Bell,
@@ -18,6 +18,7 @@ import {
   Award,
   ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function MarketBriefLanding() {
   const [scrollY, setScrollY] = useState(0);
@@ -315,7 +316,7 @@ export default function MarketBriefLanding() {
                 </button>
               </div>
 
-              <div className="flex items-center space-x-8 text-sm text-gray-500 animate-fade-in delay-300">
+              {/* <div className="flex items-center space-x-8 text-sm text-gray-500 animate-fade-in delay-300">
                 <div className="flex items-center space-x-2 hover:scale-110 transition-transform cursor-pointer">
                   <Star className="w-4 h-4 text-yellow-400 fill-current animate-pulse" />
                   <span>4.8/5 Rating</span>
@@ -328,7 +329,7 @@ export default function MarketBriefLanding() {
                   <Award className="w-4 h-4" />
                   <span>Editor's Choice</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="relative animate-slide-in-right">
@@ -345,31 +346,31 @@ export default function MarketBriefLanding() {
                     <div className="bg-green-50 border-l-4 border-green-500 p-3 rounded animate-slide-in-up delay-100 hover:scale-105 hover:shadow-md transition-all cursor-pointer">
                       <div className="flex justify-between">
                         <span className="text-green-600 text-sm font-semibold">
-                          S&P 500
+                          Get Instant financial updates
                         </span>
-                        <span className="text-green-600 text-sm font-bold">
+                        {/* <span className="text-green-600 text-sm font-bold">
                           +1.2%
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className="bg-red-50 border-l-4 border-red-500 p-3 rounded animate-slide-in-up delay-200 hover:scale-105 hover:shadow-md transition-all cursor-pointer">
                       <div className="flex justify-between">
                         <span className="text-red-600 text-sm font-semibold">
-                          NASDAQ
+                          Global coverage
                         </span>
-                        <span className="text-red-600 text-sm font-bold">
+                        {/* <span className="text-red-600 text-sm font-bold">
                           -0.8%
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-3 rounded animate-slide-in-up delay-300 hover:scale-105 hover:shadow-md transition-all cursor-pointer">
                       <div className="flex justify-between">
                         <span className="text-blue-600 text-sm font-semibold">
-                          DOW
+                          Trusted by professionals
                         </span>
-                        <span className="text-blue-600 text-sm font-bold">
+                        {/* <span className="text-blue-600 text-sm font-bold">
                           +0.3%
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                   </div>
@@ -386,8 +387,10 @@ export default function MarketBriefLanding() {
                     <TrendingUp className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">+24%</div>
-                    <div className="text-xs text-gray-500">This Month</div>
+                    <div className="text-xl font-bold text-gray-900">
+                      Finance
+                    </div>
+                    {/* <div className="text-xs text-gray-500">This Month</div> */}
                   </div>
                 </div>
               </div>
@@ -401,8 +404,10 @@ export default function MarketBriefLanding() {
                     <BarChart3 className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">1.2M</div>
-                    <div className="text-xs text-gray-500">Active Users</div>
+                    <div className="text-xl font-bold text-gray-900">
+                      Market
+                    </div>
+                    {/* <div className="text-xs text-gray-500">Active Users</div> */}
                   </div>
                 </div>
               </div>
@@ -412,7 +417,7 @@ export default function MarketBriefLanding() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white relative">
+      <section id="Features" className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-slide-in-up">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -428,16 +433,16 @@ export default function MarketBriefLanding() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer animate-scale-in"
+                className="group bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-2xl border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer animate-scale-in h-full flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="mb-4 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors text-left">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-left flex-grow">
                   {feature.description}
                 </p>
                 <div className="mt-4 flex items-center text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -616,15 +621,15 @@ export default function MarketBriefLanding() {
             {[
               {
                 title: "Product",
-                links: ["Features", "Pricing", "API"],
+                links: ["Features"],
               },
               {
                 title: "Company",
-                links: ["About", "Blog", "Careers"],
+                links: ["About Us"],
               },
               {
                 title: "Support",
-                links: ["Help Center", "Privacy Policy", "Terms of Service"],
+                links: ["Privacy Policy"],
               },
             ].map((section, index) => (
               <div
@@ -636,16 +641,25 @@ export default function MarketBriefLanding() {
                   {section.title}
                 </h3>
                 <ul className="space-y-2 text-gray-400">
-                  {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a
-                        href="#"
-                        className="hover:text-white hover:translate-x-1 inline-block transition-all duration-300"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
+                  {section.links.map((link, linkIndex) => {
+                    const href =
+                      link === "About Us"
+                        ? "/about-us"
+                        : link === "Pricing"
+                        ? "/pricing": link === "Features"
+                        ? "#Features"
+                        : "/";
+                    return (
+                      <li key={linkIndex}>
+                        <Link
+                          href={href}
+                          className="hover:text-white hover:translate-x-1 inline-block transition-all duration-300"
+                        >
+                          {link}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

@@ -1,17 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import CountUp from "react-countup";
+import { Zap, Globe, BarChart, Bitcoin, Banknote } from "lucide-react";
 import {
   TrendingUp,
-  Users,
-  Target,
   Award,
-  Globe,
   Shield,
-  Zap,
-  Heart,
-  ChevronRight,
   Play,
-  Menu,
   X,
   Mail,
   Phone,
@@ -36,10 +31,10 @@ const AboutUsPage = () => {
       bio: "Tech veteran who led engineering teams at major fintech companies, specializing in real-time data systems.",
     },
     {
-      name: "Emily Johnson",
-      role: "Head of Content",
+      name: "Prince Sharma",
+      role: "Frontend Developer",
       image: "https://i.pravatar.cc/300?img=3",
-      bio: "Award-winning financial journalist with expertise in market analysis and economic reporting.",
+      bio: "Passionate frontend developer specializing in React, TypeScript, and modern UI/UX design.",
     },
     {
       name: "Aditya Salunke",
@@ -53,81 +48,60 @@ const AboutUsPage = () => {
       image: "../Image/Tushar.jpg",
       bio: "Product strategist focused on creating intuitive experiences for financial professionals and investors.",
     },
-    {
-      name: "Tushar Mishra",
-      role: "UI & UX Designer",
-      image: "../Image/Tushar.jpg",
-      bio: "Product strategist focused on creating intuitive experiences for financial professionals and investors.",
-    },
-    {
-      name: "Tushar Mishra",
-      role: "UI & UX Designer",
-      image: "../Image/Tushar.jpg",
-      bio: "Product strategist focused on creating intuitive experiences for financial professionals and investors.",
-    },
   ];
 
   const stats = [
-    { number: "10M+", label: "Monthly Readers", icon: Users },
-    { number: "500+", label: "News Sources", icon: Globe },
-    { number: "50ms", label: "Average Load Time", icon: Zap },
-    { number: "99.9%", label: "Uptime", icon: Shield },
+    // { number: "10M+", label: "Monthly Readers", icon: Users },
+    { number: 500, label: "News Sources", icon: Globe },
+    { number: 50, label: "Average Load Time", icon: Zap },
+    { number: 99.9, label: "Uptime", icon: Shield },
   ];
 
   const values = [
     {
-      title: "All",
+      title: "Stocks",
       description: [
-        "Covers all financial sectors including stocks, IPOs, crypto, and more.",
-        "Unified dashboard for diverse investment insights.",
-        "Simplified data view for all market segments.",
+        "Real-time updates on stock prices and trends.",
+        "Track global indices like S&P 500, NASDAQ, and NIFTY.",
+        "AI-powered alerts on major market shifts.",
       ],
-      icon: Target,
+      icon: BarChart,
     },
     {
-      title: "Stock Market",
-      description: [
-        "Real-time updates on stock trends and movements.",
-        "AI-powered alerts for market shifts.",
-        "Coverage of global stock exchanges and indices.",
-      ],
-      icon: Zap,
-    },
-    {
-      title: "IPO's",
+      title: "Startups",
       description: [
         "Get alerts on upcoming and ongoing IPOs.",
-        "In-depth analysis and company overviews.",
+        "In-depth company analysis before listing.",
         "Track IPO performance post-listing.",
       ],
       icon: Globe,
     },
     {
-      title: "Crypto",
-      description: [
-        "Live tracking of top cryptocurrencies.",
-        "News on blockchain developments and regulations.",
-        "Crypto market insights and volatility updates.",
-      ],
-      icon: Heart,
-    },
-    {
       title: "Mutual Funds",
       description: [
-        "Compare top mutual funds by performance.",
+        "Compare top mutual funds by historical returns.",
         "Track NAVs, fund managers, and sectors.",
         "Insights on SIPs, ELSS, and long-term growth.",
       ],
-      icon: Heart,
+      icon: Banknote,
     },
     {
       title: "Crypto",
       description: [
-        "Learn about DeFi, NFTs, and altcoins.",
-        "Wallet security tips and crypto trends.",
-        "Community sentiment and expert forecasts.",
+        "Live tracking of top cryptocurrencies.",
+        "News on blockchain, DeFi, and regulations.",
+        "Market insights and volatility updates.",
       ],
-      icon: Heart,
+      icon: Bitcoin,
+    },
+    {
+      title: "Economy",
+      description: [
+        "Stay updated on inflation, GDP, and fiscal policies.",
+        "Global trade, monetary policy, and government budgets.",
+        "Expert analysis on economic trends and forecasts.",
+      ],
+      icon: Zap,
     },
   ];
 
@@ -244,9 +218,10 @@ const AboutUsPage = () => {
       </section>
 
       {/* Stats Section */}
+
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -255,7 +230,13 @@ const AboutUsPage = () => {
                     <Icon className="text-blue-600" size={24} />
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold text-blue-900 mb-1 sm:mb-2">
-                    {stat.number}
+                    <CountUp
+                      start={0}
+                      end={stat.number}
+                      duration={2}
+                      separator=","
+                    />
+                    {stat.number > 100 ? "+" : stat.number < 51 ? "ms" : ""}
                   </div>
                   <div className="text-sm sm:text-base text-gray-600">
                     {stat.label}
@@ -314,8 +295,8 @@ const AboutUsPage = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-0 bg-white">
+        <div className="mx-auto px-4 sm:px-6 lg:px-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
               Our Core Values
@@ -325,35 +306,58 @@ const AboutUsPage = () => {
               community of investors and professionals.
             </p>
           </div>
-          {/* <ul className="text-gray-600 list-disc list-inside space-y-1">
-            {values.description.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul> */}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="text-center p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors"
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
-                    <Icon className="text-white" size={24} />
+          {/* Full rows */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values
+              .slice(0, Math.floor(values.length / 3) * 3)
+              .map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <div className="flex justify-center flex-col w-125 h-85 p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
+                    <div className="flex flex-col items-center mb-6">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
+                        <Icon className="text-white" size={24} />
+                      </div>
+                      <h3 className="text-xl font-bold text-blue-900 text-center">
+                        {value.title}
+                      </h3>
+                    </div>
+                    <ul className="text-gray-600 list-disc list-inside space-y-1 text-left font-semibold">
+                      {value.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold text-blue-900 mb-4">
-                    {value.title}
-                  </h3>
-                  <ul className="text-gray-600 list-disc list-inside space-y-1">
-                    {value.description.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
+
+          {/* Last row if not full */}
+          {values.length % 3 !== 0 && (
+            <div className="flex justify-center gap-8 mt-8">
+              {values.slice(-(values.length % 3)).map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <div className="flex justify-center flex-col h-85 w-125 p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
+                    <div className="flex flex-col items-center mb-6">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
+                        <Icon className="text-white" size={24} />
+                      </div>
+                      <h3 className="text-xl font-bold text-blue-900 text-center">
+                        {value.title}
+                      </h3>
+                    </div>
+                    <ul className="text-gray-600 list-disc list-inside space-y-1 text-left font-semibold">
+                      {value.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -415,8 +419,8 @@ const AboutUsPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-blue-900 text-white py-12 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
@@ -448,7 +452,7 @@ const AboutUsPage = () => {
                     About Us
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" className="hover:text-white">
                     Careers
                   </a>
@@ -462,11 +466,11 @@ const AboutUsPage = () => {
                   <a href="#" className="hover:text-white">
                     Blog
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
 
-            <div>
+            {/* <div>
               <h3 className="font-bold mb-4">Product</h3>
               <ul className="space-y-2 text-blue-200">
                 <li>
@@ -490,7 +494,7 @@ const AboutUsPage = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <div>
               <h3 className="font-bold mb-4">Contact</h3>
@@ -501,18 +505,18 @@ const AboutUsPage = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Phone size={16} />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 9911065583</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin size={16} />
-                  <span>New York, NY</span>
+                  <span>Goverdhan,Mathura</span>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="border-t border-blue-700 mt-8 pt-8 text-center text-blue-200">
-            <p>&copy; 2024 MarketBrief. All rights reserved.</p>
+            <p>&copy; 2025 MarketBrief. All rights reserved.</p>
           </div>
         </div>
       </footer>
